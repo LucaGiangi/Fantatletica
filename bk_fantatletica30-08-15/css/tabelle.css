@@ -1,0 +1,55 @@
+
+.tab_el  {
+	border-spacing:0px;
+	width:100%;
+	/*float: left;*/
+}
+.img_schedina{
+	background: url(../images/schedina_sfondo.png) top right no-repeat;}
+.tab_el  td strong{
+	text-transform:uppercase;
+}
+
+.tab_el .pari{
+	background-color:rgba(216, 216, 216,0.5);/*#D8D8D8;*//*#F5F5F5;*/
+}
+.tab_el .dispari{
+	background-color: rgba(243, 243, 243,0.8);/*#F3F3F3;*/
+}
+
+.tab_el .evidenzia{
+	background-color:#C6FFB6;
+}
+.tab_el img{
+	/*width:40px;
+	height:40px;*/
+	width:50px;
+	height:34px;
+	border-radius: 3px;
+	/*margin-left:3px;*/
+}
+
+.tab_el .flag{
+	width:30px;
+	height: auto;	
+}
+
+.tab_el   td {
+border-top: 1px solid #999;
+padding:5px;
+/*padding-bottom:5px;
+padding-top:5px;*/
+font-size:16px;
+}
+
+.tab_el   th {
+
+padding:2px;
+
+}
+.titolo_gara{
+font-size:18px;
+color:#3b5998;
+text-transform:uppercase;
+
+}

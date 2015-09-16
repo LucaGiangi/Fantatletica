@@ -1,0 +1,85 @@
+
+.table {
+	font-family: 'Montserrat',sans-serif;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+
+.table tr:last-child td {
+	border-bottom: none !important;
+}
+
+#rank tbody[data-page="0"] tr:first-child .artwork {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	margin-top: -93px;
+	margin-left: 1px;
+}
+
+.table>thead>tr>th {
+	font-size: 13px;
+	color: #c7c7c7;
+	line-height: 1.2em;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #ddd;
+}
+
+.table>tbody>tr>td {
+	padding: 15px 10px;
+	border-top: none;
+	vertical-align: middle;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.table>tbody>tr:hover {
+	cursor: pointer;
+}
+
+.table .title {
+	font-weight: bold;
+	font-size: 16px;
+	max-width: 300px;
+}
+
+.table .subtitle {
+	font-size: 14px;
+	max-width: 300px;
+}
+
+.table .info {
+	font-size: 12px;
+}
+
+.table .artwork {
+	width: 70px;
+	height: 70px;
+	display: block;
+	margin-left: 24px;
+}
+
+.table .artwork-th {
+	width: 148px;
+	padding: 0;
+	border-bottom: none !important;
+}
+
+.table .pos-new {
+	color: #F3411D;
+	font-weight: bold;
+}
+
+.table td {
+	-webkit-transition: background .4s;
+}
+
+.table tr:hover td {
+	background: #eee;
+}
+
+#rank-archive td {
+	cursor: pointer;
+}

@@ -1,0 +1,327 @@
+.request_ok{cursor:pointer;}
+.request_no{cursor:pointer;float:right!important;}
+.confirm_request{
+	
+	text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    color: #27879E;
+    font-size: 22px;}
+.marginezero{margin-bottom:0;}
+.commenti{font-size:14px;}
+input[type="text"],.st_input,input[type="file"] {background:#F2F2F2;border:1px solid #F3AA05;border-radius:3px;
+font-size:20px;
+ border-style: solid;
+    border-width: 1spx;
+	border-color:rgb(255, 203, 5);
+	-webkit-transition: all 0.5s linear; -moz-transition: all 0.5s linear; -o-transition: all 0.5s linear; transition: all 0.5s linear;}
+.blu{border:1px solid #27879E!important;}	
+
+.search{background-image:url(../images/lente.png);width: 36px;height: 36px;background-size: 100%;border-radius: 18px;margin-top: 5px;
+    cursor: pointer;}
+.add{background-image:url(../images/add1.png);width: 36px;height: 36px;background-size: 100%;border-radius: 18px;margin-top: 5px;
+    cursor: pointer;}
+.upload{background-image:url(../images/upload.png);width: 36px;height: 36px;background-size: 100%;margin-top: 5px;
+    cursor: pointer;margin-left: 4px;}
+	
+/*background: #171018 url(//www.atletipercaso.net/wp-content/themes/Iris/images/menubg.jpg) 100% 100% no-repeat;*/
+.line_blu{background:#27879E; background-size:auto 100%;}
+.center{
+	position:relative;
+	
+}
+.header_utente{
+	width:100%;
+/*	height:500px;*/
+	/*background:#F00;*/
+	position:relative;
+	   /* top: -65px;*/
+   /* z-index: -1;*/
+	
+}
+.header_m{
+		
+	/*background-color:#FF0;*/
+	position:absolute;
+	/*left:40px;*/
+	top:0px;
+	width: 100%;
+	
+}
+.copertina{
+background-repeat:no-repeat;
+background-size:auto 100%;
+background-position: center center;
+height:210px;/*height:170px;*/
+opacity:0.5;
+	
+}
+.copertina1{
+	background-color:rgba(255,255,255,0.5);	
+	height:120px;	
+}
+.notifiche{
+	/*background:#F3AA05;*/
+	width:100%;
+	height:60px;
+}
+.avatar{
+	width:150px;
+	height:150px;
+	border-radius:75px;
+	/*background-color:#FF0;*/
+	position:absolute;
+	/*left:40px;*/
+	bottom:20px;
+}
+.page_title{
+	width:100%;
+	text-align:center;
+
+	position:absolute;
+	/*left:40px;*/
+	bottom:20px;	
+}
+.calendario{
+	/*background:#0FF;*/
+	width:32%;
+	height:250px;
+	display:inline-block;	
+}
+
+.calendario_top{
+	float:left;
+	width:100%;
+	text-align:center;
+	height:80px;
+	
+}
+.calendario_bottom{
+	float:left;
+	width:100%;
+	text-align:center;
+	height:140px;
+
+}
+.calendario_bottom h3{color:#000!important;}
+
+.lega{
+    position: relative;
+ 	/*cursor: pointer;*/
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 90%;
+    max-width: 250px;
+    height: auto;
+    color: white;
+    padding: 5px;
+    margin: 3px;
+    text-align: left;
+    background-color: #FFD064;
+    border: 1px solid rgb(93,93,93);	
+	
+}
+.lega img{width: 46px;border-radius: 23px;    float: left;}
+.lega_info{
+	cursor:pointer;
+	    margin-left: 10px;
+    height: 40px;
+    margin-left: 50px;
+    vertical-align: top;
+    overflow: hidden;}
+.lega_nome1{
+	    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    line-height: 20px;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;}
+.lega_tool{
+	    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 25px;
+    color: rgb(100,100,100);
+    color: rgba(0,0,0,.6);
+}
+.lega_ico{
+	width:80px;
+	margin: 5px;
+	height:80px;
+	background:rgb(255, 224, 134);/*rgb(293, 190, 0);*/
+	position:relative;
+	z-index:1;
+	display:inline-block;
+	border: 1px solid #8E8E8E;
+	box-shadow: 2px 2px 1px #EEEEEE;
+	border-radius: 10px;
+	font-size:18px;
+}
+.lega_nUt{
+background:#3F3;
+	position:absolute;
+	right:-10px;
+	bottom:-10px;	
+	width:26px;
+	height:26px;;
+	border-radius:13px;text-align: center;
+	color: black;
+}
+
+.lega_nRic{
+	
+		background:#FD9090;
+	position:absolute;
+	left:-10px;
+	top:-10px;	
+	width:26px;
+	height:26px;;
+	border-radius:13px;text-align: center;
+	color: black;
+}
+.lega_nome{
+    /* background: #F00; */
+    position: absolute;
+    /* left: -10px; */
+    /* top: -10px; */
+    /* bottom: -10px; */
+    margin: 0 auto;
+    /* height: 26px; */
+    /* border-radius: 13px; */
+    top: 40%;
+    transform:rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+    color: black;
+}
+
+.sx_3col{float:left; width:35%;position:relative; margin-bottom:20px;}
+.dx_3col{float:right;width:55%;position:relative; margin-bottom:20px;}
+.sx_4col{float:left; width:25%;position:relative; margin-bottom:10px;background: #F3AA05;text-align: center;}
+.dx_4col{float:right;width:75%;position:relative; margin-bottom:10px;text-align: center;}
+.sx_5col{float:right;width:25%;position:relative; margin-bottom:10px;background: #F3AA05;text-align: center;}
+.dx_5col{float:left;width:75%;position:relative; margin-bottom:10px;text-align: center;}
+.other_race{width:100%; height:40px; text-align:center; }
+.other_race img{ height:100%}
+
+.body_info{margin-top:10px;}
+.margin_right{border-right: #F3AA05 solid 2px;}
+
+.img_race{
+	height:80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 7px;
+	margin-top: 7px;
+	cursor: pointer;
+	/*	margin-bottom: 13px; -webkit-transition: all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96); -moz-transition: all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96); -o-transition: all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96); transition:all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96);*/
+}
+/*.img_race:hover{
+	height:82px;
+	margin-bottom: 13px; -webkit-transition: all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96); -moz-transition: all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96); -o-transition: all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96); transition:all 0.1s cubic-bezier(0, 0.64, 0.75, 0.96);
+}*/
+.name_level{
+	margin: 10px;
+	color:#F3AA05;
+}
+.name_level1{margin: 10px;
+	color:#F3AA05; display:none}
+@media only screen and  (max-width: 321px) {
+
+.img_race{ height:50px;}
+.logo_gara{float:none;}
+.calendario{
+	width:100%;
+}	
+.margin_right{
+    border-bottom: #F3AA05 solid 2px;
+	border-right:none;	
+}
+.nascondiC{display:none;}
+.sx_3col{width:100%;text-align: center;}
+.dx_3col{width:100%;text-align: center;}
+.sx_4col{width:100%;text-align: center;}
+.dx_4col{width:100%;text-align: center;}
+.sx_5col{width:100%;text-align: center;}
+.dx_5col{width:100%;text-align: center;}
+.body_info {
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.avatar{ 
+left: 50%;
+margin-left: -75px;
+}
+.name_level{ display:none}
+
+}
+
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+		.sx_4col{float:right;}
+.dx_4col{float:left;}
+	.img_race{ height:50px;}
+	.logo_gara{float:none;}
+.name_level{ display:none}
+.name_level1{    display: -webkit-inline-box;}
+.calendario{
+	width:100%;
+}	
+.margin_right{
+    border-bottom: #F3AA05 solid 2px;
+	border-right:none;	
+}
+.nascondiC{display:none;}
+.sx_3col{width:100%;text-align: center;}
+.dx_3col{width:100%;text-align: center;}
+.sx_4col{width:100%;text-align: center;}
+.dx_4col{width:100%;text-align: center;}
+.sx_5col{width:100%;text-align: center;}
+.dx_5col{width:100%;text-align: center;}
+.body_info {
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.avatar{ 
+left: 50%;
+margin-left: -75px;
+}
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+	.logo_gara{float:none;}
+.name_level{ display:none}
+.name_level1{display: -webkit-inline-box;}
+.calendario{
+	width:100%;
+}	
+.margin_right{
+    border-bottom: #F3AA05 solid 2px;	
+	border-right:none;
+}
+.nascondiC{display:none;}
+.sx_3col{width:100%;text-align: center;}
+.dx_3col{width:100%;text-align: center;}
+.sx_4col{width:100%;text-align: center;}
+.dx_4col{width:100%;text-align: center;}
+.body_info {
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.avatar{ 
+left: 50%;
+margin-left: -75px;
+}
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+}
+
+	
