@@ -1,10 +1,12 @@
 <?php
-$page_name = "profile";
-include "db.inc";
-//versione 1.0 responsitive
-/* 04/09/15
+/*
+Version		author		date		description
+2.0.0		L.G			17/09/15	Versione preliminare nuova grafica
 
 */
+
+$page_name = "profile";
+include "db.inc";
 
 /*$data = date ("Y-m-d");*/
 $data = date("Y/m/d G:i:s");
@@ -41,6 +43,7 @@ function id_by_nome_utente($nome){
 }
 $id_view_gara= array();  /* contiene l'id delle gare attive. Nel caso non ci siano gare attive, si prende la prima gara nello storico*/
 $id_view_lega=-1; /* contiene id della prima lega letta */
+
 ?>
 <!doctype html>
 <html lang="it-IT" >
@@ -64,7 +67,9 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 <meta name="keywords" content="Fantatletica,schedina,sfida i tuoi amici">
 
 <!--  menu -->
+
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
 <!--<script src="script/script.js"></script>-->
 <!--  menu -->
     
@@ -114,7 +119,7 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 	?> 
     </div>
     <div class="page_title">
-    	<h1>Leagues</h1>
+    	<h1>Leghe</h1>
     </div>
 </div>
 
@@ -161,7 +166,7 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 				foreach($json_leghe as $l){
 					for (;$i< sizeof($l[Leghe]);$i++){
 						if ($id_view_lega==-1) $id_view_lega=$l[Leghe][$i][Id];
-						print'<a href="#classifica" onClick="view_race(21,'.$l[Leghe][$i][Id].');"><div class="lega">';
+						print'<a href="#classifica" onClick="view_race(25,'.$l[Leghe][$i][Id].');"><div class="lega">';
                 		print '<img class="lazy" src="images/default_league.png" data-original="'.$Avatar.'"  title="Profilo" />
 									<div class="lega_info">
 										<p class="lega_nome1">'.$l[Leghe][$i][Nome].'</p>
@@ -173,8 +178,13 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 					}
 					if ($i==5){ break;}
 				}
-			 // Add_leghe(257,"Lega fantatletica");
-			   if ($i==0) print'Non fai parte di nessuna lega.';
+			   if ($i==0){
+				   print'<p class="color_red">Non fai parte di nessuna lega.</p>
+				   		<p><span class="articolo">Le leghe ti permettono di <span class="color_orange articolo"> giocare con i tuoi amici</span>. Crea una nuova lega diventandone amministratore oppure richiedi di poter giocare a una lega già esistente.</span></p>
+						
+						
+						';
+			   }
 			   ?>       
         
         </div>  
@@ -182,98 +192,90 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 </div>
 
 <div class="body_info">
-	<div class="call_action_contenuto">        
-		                  
-		<div class="dx_5col">
-			<div class="titolo"><hh2><a name="classifica"></a>Classifica</hh2></div><br/>
-            
-            <div id="view_race">
-                <div class="gara">
-                    <?php 
-					// nome e avatar lega mostrata in classifica
-                    $Race=Read_race($id_view_gara[0]);
-                    $json_o=json_decode($Race,true); /* decodifico json */
-                    $i=0;
-                    foreach($json_o as $r){
-                        for (;$i< sizeof($r[Races]);$i++){
-                            print '<div class="sx_4col" style="background-color:transparent;"><img class="logo_gara" style="padding-right:20px; padding-bottom:20px;" src="../images/header_gare/'.$r[Races][$i][Header_link].'">
-                    </div><div class="dx_4col"><h2><articolo>'.$r[Races][$i][Nome].'</articolo></h2>
-                    <h3>Stato:'.$r[Races][$i][Stato_classifica].'</h3></div>';
-                        }	
-                    }
-                    ?>
-                    <br/>
-                </div>
+	<div class="call_action_contenuto">
     
-                <table id="rank" class="table">
-                    <thead><tr><th class="chart-rank">Rank<br></th><th>Nickname<br>NomeTeam</th><th class="chart-info">Punti<br></th><th class="chart-pos">Costo team<br></th><th class="chart-prev">Numero team<br></th></tr></thead>
-                    <tbody data-page="0">
-                <?php			
-                $stringa_rank=Rank($id_view_lega,21); // leggi punteggi atleti
-                $json_o=json_decode($stringa_rank,true); /* decodifico json */
-                foreach($json_o as $p){             
-                    for ($i=0;$i< sizeof($p[Rank]);$i++){
-                        $riga=!$riga;		
-                        if ($g_nome==$p[Rank][$i][Nome])/*$_SESSION['g_user']*/
-                            {print '<tr class="evidenzia">';}
-                        else
-                            print '<tr>';
-                            
-                            //print ($p[$i][username]);
-                        print '<td style="text-align:center">';
-                        if ($i==0) print '<img width="30px"  class="gold" src="images/gold.png">'; 
-                        if ($i==1) print '<img  width="27px" class="silver" src="images/silver.png">';
-                        if ($i==2) print '<img  width="24px" class="bronze" src="images/bronze.png">';
-                        
-                        if ($i>2) print ($i+1)."&deg;"; 
-                        print'</td><td><div class="title">'.$p[Rank][$i][Nome].'</div><div class="subtitle"></div></td>';
-                        print '<td style="text-align:center">'.$p[Rank][$i][Punti].'</td>';
-                        print '<td style="text-align:center">'.$p[Rank][$i][Costo].'</td>';
-                        print '<td style="text-align:center">'.$p[Rank][$i][Numero].'</td>';
-                        print'</tr>';	
-                        //$i++;	
-                    }
-                }
-    ?>
-    
-                    </tbody>
-                </table>
-               
-			</div>
-            <div class="other_race">Storico gare lega<br/>
-            	<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-                <img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-                <img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-                <img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-                <img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-                <img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-                <img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
-            </div>
-            <?php 	
-			 
-			if (count($id_view_gara)>1){
-				// stampo l'elenco delle gare giocate in parallelo
-				print'<div class="other_race">Altre gare:<br/>';
-				foreach ($id_view_gara as $gara){ 
-					$Race=Read_race($gara);
-					$json_o=json_decode($Race,true); /* decodifico json */		        
-					print'<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="" data-original="images/header_gare/'.$json_o[0][Races][0][Header_link].'"/>';
-					 
-				}
-				print'</div>';
+    		<?php  
+			if ($i==0){// non ci sono leghe
+				
+							
+			}else{// altrimenti mostro la classifica
+				print '<div class="titolo"><hh2><a name="classifica"></a>Classifica</hh2></div><br/>         
+				<div id="view_race">
+					<div class="gara">';
+						
+						// nome e avatar lega mostrata in classifica
+						$Race=Read_race(25);
+						$json_o=json_decode($Race,true); /* decodifico json */
+						$i=0;
+						foreach($json_o as $r){
+							for (;$i< sizeof($r[Races]);$i++){
+								print '<div class="sx_4col" style="background-color:transparent;"><img class="logo_gara" style="padding-right:20px; padding-bottom:20px;" src="../images/header_gare/'.$r[Races][$i][Header_link].'">
+						</div><div class="dx_4col"><h2><articolo>'.$r[Races][$i][Nome].'</articolo></h2>
+						<h3>Stato:'.$r[Races][$i][Stato_classifica].'</h3></div>';
+							}	
+						}
+						print'
+						<br/>
+					</div>
+		
+					<table id="rank" class="table">
+						<thead><tr><th class="chart-rank">Rank<br></th><th>Nickname<br>NomeTeam</th><th class="chart-info">Punti<br></th><th class="chart-pos">Costo team<br></th><th class="chart-prev">Numero team<br></th></tr></thead>
+						<tbody data-page="0">';			
+						$stringa_rank=Rank($id_view_lega,25); // leggi punteggi atleti
+						$json_o=json_decode($stringa_rank,true); /* decodifico json */
+						foreach($json_o as $p){ 
+							$i=0;            
+							for (;$i< sizeof($p[Rank]);$i++){
+								$riga=!$riga;		
+								if ($g_nome==$p[Rank][$i][Nome])/*$_SESSION['g_user']*/
+									print '<tr class="evidenzia">';
+								else
+									print '<tr>';
+									
+									//print ($p[$i][username]);
+								print '<td style="text-align:center">';
+								if ($i==0) print '<img width="30px"  class="gold" src="images/gold.png">'; 
+								if ($i==1) print '<img  width="27px" class="silver" src="images/silver.png">';
+								if ($i==2) print '<img  width="24px" class="bronze" src="images/bronze.png">';
+								
+								if ($i>2) print ($i+1)."&deg;"; 
+								print'</td><td><div class="title"><a href="#team" onclick="view_team('.$id_view_gara.','.id_by_nome_utente($p[Rank][$i][Nome]).')">'.$p[Rank][$i][Nome].'</a></div><div class="subtitle"></div></td>';
+								print '<td style="text-align:center">'.$p[Rank][$i][Punti].'</td>';
+								print '<td style="text-align:center">'.$p[Rank][$i][Costo].'</td>';
+								print '<td style="text-align:center">'.$p[Rank][$i][Numero].'</td>';
+								print'</tr>';	
+								//$i++;	
+							}
+							if ($i==0) print '<tr><td colspan="5">Nessun team presente per questa gara</td></tr>';
+						}
+						print '
+						</tbody>
+					</table>
+				   
+				</div>
+				<!--<div class="other_race">Storico gare lega<br/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+					<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="images/header_gare/zurigo.jpg"/>
+				</div>-->';
+					if (count($id_view_gara)>1){
+						// stampo l'elenco delle gare giocate in parallelo
+						print'<div class="other_race">Altre gare:<br/>';
+						foreach ($id_view_gara as $gara){ 
+							$Race=Read_race($gara);
+							$json_o=json_decode($Race,true); /* decodifico json */		        
+							print'<img href="#classifica" class="lazy" onClick="view_race('.$gara.');" src="" data-original="images/header_gare/'.$json_o[0][Races][0][Header_link].'"/>';
+							 
+						}
+						print'</div>';
+					}
 			}
         	?>
-        </div>
-		<div class="sx_5col">        
-			<div class="titolo"><hh2>Gestione</hh2></div><br/>
-			<div style="width:100%; text-align:center; color:#fff; font-size:28px; margin-top:10px;   margin-bottom: 10px;" > 
-                <p class="marginezero">Invita un amico</p>
-                <div class="center">
-                    <input type="text" class="blu" name="nome_lega" value="" placeholder="Nome nuova utente" id="new_nome_lega" />  
-                </div>
-                <input type="button" onClick="new_lega();" class="add" align="Crea" title="Crea" />
-			</div>
-		</div>
+        
     </div>
 </div>
 
@@ -286,8 +288,8 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 <div class="body_info" style="background:#F3AA05;">
 	<div class="call_action_contenuto">
     	<div style="width:100%; text-align:center; color:#fff; font-size:28px; margin-top:10px;   margin-bottom: 10px;" >        	            
-            <p class="marginezero">Unisciti a una lega</p>
-             <span class="commenti"><i>Ricerca la lega utilizzando il campo di testo qui sotto e invia la richiesta di amicizia.<br/>La richiesta dovrà essere accettata dall'amministratore della lega.</i></span>  
+            <p class="marginezero"><a name="send_request"></a>Unisciti a una lega</p>
+			<span class="commenti"><i>Ricerca la lega utilizzando il campo di testo qui sotto e invia la richiesta di amicizia.<br/>La richiesta dovrà essere accettata dall'amministratore della lega.</i></span>  
             <div class="center">                
                 <input type="text" class="blu" name="nome_lega" value="" placeholder="Nome lega" id="nome_lega" alt="Nome della lega da cercare" title="Nome della lega da cercare" />
             </div>
@@ -300,7 +302,7 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 <div class="body_info" id="new_league">
 	<div class="call_action_contenuto">
     	<div style="width:100%; text-align:center; font-size:28px; margin-top:10px; margin-bottom: 10px;" > 
-        	<p>Crea la tua lega</p>       
+        	<p><a name="new_leagues"></a>Crea la tua lega</p>       
            	
            <!-- <span class="commenti"><i>Carica una nuova immagine per la lega</i></span><br/>
             <input type="file" id="name_file"  name="file"><br/>
@@ -311,7 +313,6 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
             </div>
             <input type="button" onClick="new_lega();" class="add" align="Crea" title="Crea" />
             <div id="notifica_leghe"></div> 
-        	<span class="commenti"><i>bla bla bla</i></span> 
         </div>  
     </div>
 </div>
@@ -319,8 +320,8 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 
 <?php include 'php/footer4_0.php';?>  
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://www.appelsiini.net/projects/lazyload/jquery.lazyload.js?v=1.9.1"></script>
+<script  src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script  src="http://www.appelsiini.net/projects/lazyload/jquery.lazyload.js?v=1.9.1"></script>
 <script>$(function() {$("img").lazyload({effect : "fadeIn"});});;</script> 
 
 <script>

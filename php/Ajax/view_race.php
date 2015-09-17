@@ -37,61 +37,64 @@ print'<div class="gara">';
 	<h3>Stato:'.$r[Races][$i][Stato_classifica].'</h3></div>';
 		}	
 	}
-	print'
-		<br/>
+	
+print'<br/>
 </div>
-
-	<table id="rank" class="table">
+<table id="rank" class="table">
 		<thead><tr><th class="chart-rank">Rank<br></th><th>Nickname<br>NomeTeam</th><th class="chart-info">Punti<br></th><th class="chart-pos">Costo team<br></th><th class="chart-prev">Numero team<br></th></tr></thead>
 		<tbody data-page="0">';
 			
-			$stringa_rank=Rank($id_league,$id_view_gara); // leggi punteggi atleti
-			$json_o=json_decode($stringa_rank,true); /* decodifico json */
-			foreach($json_o as $p){
-				
-				$punt=0;
-				for ($i=0;$i< sizeof($p[Rank]);$i++)
-					if ($g_nome==$p[Rank][$i][Nome]){$punt=$i; break;}
-				
-				$start=$punt-2;
-				$end=3;
-				
-				if ($punt<2){$start=0;$end=(5-$punt);}
-				
-				if ($punt>sizeof($p[Rank])-3){$end=(sizeof($p[Rank])-$punt);$start=sizeof($p[Rank])-5;}
-				
-				
-				for ($i=$start;$i< $end+$punt;$i++){
-					$riga=!$riga;		
-					if ($g_nome==$p[Rank][$i][Nome])/*$_SESSION['g_user']*/
-						{print '<tr class="evidenzia">';}
-					else
-						print '<tr>';
-						
-						//print ($p[$i][username]);
-					print '<td style="text-align:center">';
-					if ($i==0) print '<img width="30px"  class="gold" src="images/gold.png">'; 
-					if ($i==1) print '<img  width="27px" class="silver" src="images/silver.png">';
-					if ($i==2) print '<img  width="24px" class="bronze" src="images/bronze.png">';
-					
-					if ($i>2) print ($i+1)."&deg;"; 
-					print'</td><td><div class="title">';
-					if ($id_league!=NULL) print '<a href="#team" onclick="view_team('.$id_view_gara.','.id_by_nome_utente($p[Rank][$i][Nome]).')">';
-					print $p[Rank][$i][Nome];
-					if ($id_league!=NULL) print '</a>';
-					print '</div><div class="subtitle"></div></td>';
-					print '<td style="text-align:center">'.$p[Rank][$i][Punti].'</td>';
-					print '<td style="text-align:center">'.$p[Rank][$i][Costo].'</td>';
-					print '<td style="text-align:center">'.$p[Rank][$i][Numero].'</td>';
-					print'</tr>';	
-					//$i++;	
-				}
-			}
+$stringa_rank=Rank($id_league,$id_view_gara); // leggi punteggi atleti
+$json_o=json_decode($stringa_rank,true); /* decodifico json */
+foreach($json_o as $p){
+	
+	if ($id_league==NULL){// se non stiamo visualizzando la classifica di una lega stampo solo 5 righe
+		$punt=0;
+		for ($i=0;$i< sizeof($p[Rank]);$i++)
+			if ($g_nome==$p[Rank][$i][Nome]){$punt=$i; break;}
+		
+		$start=$punt-2;
+		$end=3;
+		
+		if ($punt<2){$start=0;$end=(5-$punt);}
+		
+		if ($punt>sizeof($p[Rank])-3){$end=(sizeof($p[Rank])-$punt);$start=sizeof($p[Rank])-5;}
+	}else{// in caso di una classifica per la lega stampo tutta la classifica
+		$start=0;
+		$punt=0;
+		$end=sizeof($p[Rank]);
+	}
+	
+	for ($i=$start;$i< $end+$punt;$i++){
+		$riga=!$riga;		
+		if ($g_nome==$p[Rank][$i][Nome])/*$_SESSION['g_user']*/
+			{print '<tr class="evidenzia">';}
+		else
+			print '<tr>';
+			
+			//print ($p[$i][username]);
+		print '<td style="text-align:center">';
+		if ($i==0) print '<img width="30px"  class="gold" src="images/gold.png">'; 
+		if ($i==1) print '<img  width="27px" class="silver" src="images/silver.png">';
+		if ($i==2) print '<img  width="24px" class="bronze" src="images/bronze.png">';
+		
+		if ($i>2) print ($i+1)."&deg;"; 
+		print'</td><td><div class="title">';
+		if ($id_league!=NULL) print '<a href="#team" onclick="view_team('.$id_view_gara.','.id_by_nome_utente($p[Rank][$i][Nome]).')">';
+		print $p[Rank][$i][Nome];
+		if ($id_league!=NULL) print '</a>';
+		print '</div><div class="subtitle"></div></td>';
+		print '<td style="text-align:center">'.$p[Rank][$i][Punti].'</td>';
+		print '<td style="text-align:center">'.$p[Rank][$i][Costo].'</td>';
+		print '<td style="text-align:center">'.$p[Rank][$i][Numero].'</td>';
+		print'</tr>';	
+		//$i++;	
+	}
+}
 
 
-		print'</tbody>
-	</table>';
-print'<a href="raceRank.php?id='.$id_view_gara.'"><span class="budget">Classifica completa</span></a>';
+print'</tbody></table>';
+if ($id_league==NULL) print'<a href="raceRank.php?id='.$id_view_gara.'"><span class="budget">Classifica completa</span></a>';
 print'</div> 
 </div>';
 ?>

@@ -41,7 +41,6 @@ function id_by_nome_utente($nome){
 }
 $id_view_gara= array();  /* contiene l'id delle gare attive. Nel caso non ci siano gare attive, si prende la prima gara nello storico*/
 $id_view_lega=-1; /* contiene id della prima lega letta */
-
 ?>
 <!doctype html>
 <html lang="it-IT" >
@@ -185,6 +184,7 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 <div class="body_info">
 	<div class="call_action_contenuto">        
 		                  
+		<div class="dx_5col">
 			<div class="titolo"><hh2><a name="classifica"></a>Classifica</hh2></div><br/>
             
             <div id="view_race">
@@ -226,7 +226,7 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
                         if ($i==2) print '<img  width="24px" class="bronze" src="images/bronze.png">';
                         
                         if ($i>2) print ($i+1)."&deg;"; 
-                        print'</td><td><div class="title"><a href="#team" onclick="view_team('.$id_view_gara.','.id_by_nome_utente($p[Rank][$i][Nome]).')">'.$p[Rank][$i][Nome].'</a></div><div class="subtitle"></div></td>';
+                        print'</td><td><div class="title">'.$p[Rank][$i][Nome].'</div><div class="subtitle"></div></td>';
                         print '<td style="text-align:center">'.$p[Rank][$i][Punti].'</td>';
                         print '<td style="text-align:center">'.$p[Rank][$i][Costo].'</td>';
                         print '<td style="text-align:center">'.$p[Rank][$i][Numero].'</td>';
@@ -263,7 +263,17 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 				print'</div>';
 			}
         	?>
-        
+        </div>
+		<div class="sx_5col">        
+			<div class="titolo"><hh2>Gestione</hh2></div><br/>
+			<div style="width:100%; text-align:center; color:#fff; font-size:28px; margin-top:10px;   margin-bottom: 10px;" > 
+                <p class="marginezero">Invita un amico</p>
+                <div class="center">
+                    <input type="text" class="blu" name="nome_lega" value="" placeholder="Nome nuova utente" id="new_nome_lega" />  
+                </div>
+                <input type="button" onClick="new_lega();" class="add" align="Crea" title="Crea" />
+			</div>
+		</div>
     </div>
 </div>
 

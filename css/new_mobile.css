@@ -209,7 +209,7 @@ margin-bottom: 20px;
 background:#FAF9F9;
 margin-bottom: 20px;
 width:45%;border: 2px solid #FC0;}
-.titolo{ padding-left:5px; background:#323232;}
+.titolo{text-align: center;padding-left:5px; background:#323232;}
 
 .gara{
 	width:100%;
@@ -536,8 +536,8 @@ cropper > img {
 	background:url(../images/schedina_sfondo.png) top right no-repeat;
 	
 }
-.sx_2col{float:left; width:45%; text-align:center; /*height:120px;*/ position:relative; margin-bottom:20px;}
-.dx_2col{float:right;width:45%;text-align:center;/*height:120px;*/ position:relative; margin-bottom:20px;}
+.sx_2col{display:inline-block; width:45%; text-align:center; /*height:120px;*/ position:relative; margin-bottom:20px;}
+.dx_2col{display:inline-block;width:45%;text-align:center;/*height:120px;*/ position:relative; margin-bottom:20px;}
 .button1{
   color: #000;
   margin-left: 25%;

@@ -40,7 +40,7 @@ global $page_name;
 	 	<ul>
         	<?php
 			print'<li>'; if(isset($_COOKIE[$C_token])) print' <a href="profile.php">Home</a>'; else print' <a href="index.php">Home</a>'; print'</li>
-					<li><a href="g-home.php?cod=esci">Logout</a></li>
+					<li><a href="profile.php?cod=esci">Logout</a></li>
 					<li><a href="'; if ($team_creato==true or ($_SESSION['id_competizione']==-1)) print 'g-home-team.php'; else print'g-team_new.php';
 					print '">Team</a></li>
 					
