@@ -5,7 +5,7 @@ Version		author		date		description
 
 */
 
-$page_name = "profile";
+$page_name = "leagues";
 include "db.inc";
 
 /*$data = date ("Y-m-d");*/
@@ -93,36 +93,6 @@ $id_view_lega=-1; /* contiene id della prima lega letta */
 
 
 <?php include 'php/header5_0.php';?>  
-
-
-<div class="header_utente">
-	   
-	<div style="background:url(<?php print $g_avatar; ?>) no-repeat;background-size:100%;background-position: center center;" class="copertina">
-    </div>
-	
-    
-    <div class="header_m">
-    	 <?php 
-	
-	print '<div id="toolbar">
-		<div id="menu" >
-        	<div class="menu-principale-container contenuto">';          
-                include "php/headerMENU4_0.php"; 
-                  
-			print' </div>
-         </div>
-		<div id="expand">
-			<a href="#" id="more"></a>
-		</div>
-	</div>';
-
-	?> 
-    </div>
-    <div class="page_title">
-    	<h1>Leghe</h1>
-    </div>
-</div>
-
 
 
 <?php

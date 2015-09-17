@@ -19,7 +19,7 @@
 .team_name_race{text-align:left;}
 .team_info{
 	    margin-left: 10px;
-    height: 40px;
+   /* height: 40px;*/
     margin-left: 50px;
     vertical-align: top;
     overflow: hidden;}
@@ -98,16 +98,15 @@ color_arancio{color:#f4aa00;}
 .axc{
 	background: url(../images/SfondoAxC_2a.png) top left no-repeat;
 }
-.ischomeiscritti{
-	display:inline-table; position:relative;	/*float:left*/;margin:9px;/*height:50px;*/min-width: 230px;/*width:220px;*/ /* padding-bottom: 10px;*/
 
-}
+.ischomefame{
+display:inline-table; position:relative;margin:9px;min-width: 230px;}
+.ischomefame img{width: 110px;}
+
+.ischomeiscritti{
+display:inline-table; position:relative;	/*float:left;*/margin:9px;/*height:50px;*/min-width: 230px;}
 .ischomeiscritti h2{ margin:0px; position:relative;z-index:3;}
-.ischomeiscritti img{
-	/*height:60px;
-	  border-radius: 10px;*/
-	    /*width: 100%; */   width: 56px;
-}
+.ischomeiscritti img{width: 56px;}
 .capitano{/*background:rgba(18, 167, 200,0.2);*/}
 .bordo{border: 2px solid #FC0;}
 .team{
@@ -496,13 +495,13 @@ background-image: -ms-linear-gradient(bottom, #F3AA05 0%, #FAF9F9 100%);
 	color:#000;}
 
 
-.fame{float:left;padding:4px;margin:9px;width:43%;border:1px solid #999; position:relative;
+.fame{displaY: inline-block;/*float:left;*/padding:4px;margin:9px;width:30%;/*border:1px solid #999;*/ position:relative;
 
 
 
-	-moz-box-shadow:2px 2px 1px #999;
+	/*-moz-box-shadow:2px 2px 1px #999;
 	-webkit-box-shadow:2px 2px 1px #999;
-	box-box-shadow:2px 2px 1px #999;}
+	box-box-shadow:2px 2px 1px #999;*/}
 .fame_rx{float:left;padding:4px;margin:9px;width:43%;border:1px solid #999;position:relative;
 
 
@@ -519,7 +518,7 @@ background-image: -ms-linear-gradient(bottom, #F3AA05 0%, #FAF9F9 100%);
 .fame_rx img{
 	width:100px;
 }
-.fanta{background:rgba(255, 224, 75,0.7);}
+.fanta{/*background:rgba(255, 224, 75,0.7);*/}
 .schedina_fame{background:rgba(255, 255, 75,0.7);}
 .top_player{background:rgba(255, 195, 75,0.7);}
 div.cropper {

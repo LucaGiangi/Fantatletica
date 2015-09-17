@@ -76,42 +76,6 @@ $id_view_gara= array();  /* contiene l'id delle gare attive. Nel caso non ci sia
 
 <?php include 'php/header5_0.php';?>  
 
-
-<div class="header_utente">
-	 
-    
-	<div style=" background:url(images/corsa.jpg);background-size:100%;background-position: center center;" class="copertina">
-    	<h2 class="name_level1"><?php print $g_nome ?></h2><h3>livello:1</h3>
-    </div>
-	<div class="notifiche">
-    	<div class="call_action_contenuto" style="text-align:center;">
-  			<h2 class="name_level"><?php print $g_nome ?></h2><h3>livello:1<br/></h3>
-    	</div>
-    </div>
-    
-    <div class="header_m">
-    	 <?php 
-	
-	print '<div id="toolbar">
-		<div id="menu" >
-        	<div class="menu-principale-container contenuto">';          
-                include "php/headerMENU4_0.php"; 
-                  
-			print' </div>
-         </div>
-		<div id="expand">
-			<a href="#" id="more"></a>
-		</div>
-	</div>';
-
-	?> 
-    </div>
-    
-    <div class="call_action_contenuto">
-    <div style="background:url(<?php print $g_avatar; ?>) no-repeat;background-size:100% 100%;" class="avatar" ></div>
-    </div>
-</div>
-
 <!--  body info -->
 <div class="body_info" style="margin-top:20px;">
 	<div class="call_action_contenuto">
@@ -346,7 +310,7 @@ $id_view_gara= array();  /* contiene l'id delle gare attive. Nel caso non ci sia
 							<div class="team_info">
 											<p class="team_nome1">'.$r->Cognome.'</p>
 											<p class="team_nome1">'.$r->Nome.'</p>
-											<p class="team_tool">i</p>
+											
 							</div>';                      	
                         if ($r->Prima_gara==$r->Gara_Gara1 && $r->Risultato_punti!=0) print '<div class="team_name_race">'.$r->Risultato_punti.' Punti</div>';
                         if ($r->Prima_gara==$r->Gara_Gara2 && $r->Risultato_classifica!=0) print '<div class="team_name_race">'.$r->Risultato_classifica.' Punti</div>';

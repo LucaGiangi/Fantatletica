@@ -5,7 +5,7 @@ Version		author		date		description
 
 */
 
-$page_name = "regolamento";
+$page_name = "hall_of_fame";
 include "db.inc";
 //versione 4.0 responsitive
 session_start();
@@ -35,34 +35,50 @@ session_start();
     
 <link type="text/css" media="all" href="css/style.css" rel="stylesheet" />
 <link type="text/css" media="all" href="css/new_mobile.css" rel="stylesheet" />
-
+<link href="css/m_style.css" rel="stylesheet" />
+<link type="text/css" media="all" href="css/utente.css" rel="stylesheet" />
+<link href="css/responsive.css" rel="stylesheet" />
 <title>Hall of Fame - Fantatletica</title>
 </head>
+<?php include 'php/header5_0.php';?>  
 
-<?php include 'php/header4_0.php';?>  
 
-<!--  body info -->
-<div class="body_info"><!-- sfondo_text-->
-	<div class="call_action_contenuto">   
-		<articolo1>      
-			<h1>Hall of Fame</h1>
-			<p>Vuoi vedere il tuo nome tra quello dei pochi vincitori del fantatletica? Gioca le partite e tenta la vittoria!</p>
-		</articolo1>
-       
-        
-		<div class="col_sx_noborder">
-			<div class="titolo"><hh2>Vincitori fantatletica</hh2></div>
-     	
-        	<div class="fame fanta">
+
+
+
+<div class="body_info" id="new_league">
+	<div class="call_action_contenuto">
+    	<div style="width:100%; text-align:center; font-size:28px; margin-top:10px; margin-bottom: 10px;" > 
+        	<span class="articolo">Vuoi vedere il tuo nome tra quello dei pochi vincitori del fantatletica? Gioca le partite e tenta la vittoria!</span>
+           	     
+        </div>  
+    </div>
+</div>
+
+<div class="body_info" style="background:#F3AA05;">
+	<div class="call_action_contenuto">
+    	<div style="width:100%; text-align:center; color:#fff; font-size:28px; margin-top:10px;   margin-bottom: 10px;" >        	            
+            <p class="marginezero"><a name="send_request"></a>Vincitori schedina</p>
+			<span class="articolo"><i>Nessuno è riuscito a fare 13. Pensi di poter essere il primo?</i></span>     
+        </div>  
+    </div>
+</div>
+
+<div class="body_info">
+	<div class="call_action_contenuto">
+    	<div style="width:100%;text-align:center;font-size:28px; margin-top:10px;margin-bottom: 10px;" >        	            
+            <p class="marginezero"><a name="send_request"></a>Vincitori fantatletica</p>
+			
+            
+            
+            <div class="fame fanta">
             	 <div class="puntina">&nbsp;</div>
                  <div class="cropper">
 					<img src="images/Vincitori/Giovanni_Mastrippolito.jpg" title="Profilo" alt="Giovanni Mastrippolito" /><br>
                 </div>
                 <div class="cont_testo">
-                    <strong>mastro</strong>	
-                    <hr>
-                    Vincitore gara:	<br>	
-                    <strong>Brixia Meeting 2015<br/>&nbsp;</strong>
+                    <p class="team_nome1">mastro</p>	
+                    <p class="team_nome1">Brixia Meeting 2015<br/>&nbsp;</p>
                 </div>
             </div>
             
@@ -135,44 +151,26 @@ session_start();
                 	<img src="images/Vincitori/Matteo_Mercati.jpg" title="Profilo" alt="Matteo Mercati"/><br>
                 </div>
                 <div class="cont_testo">
-                    <strong>MatteMerca21</strong>	
+                    <p class="team_nome1">MatteMerca21</p>	
                     <hr>
                     Vincitore gara:	<br>	
                     <strong>World Championships Pechino 2015</strong>
                 </div>  
             </div>
             
-            
-		</div>
-      
-      	<div class="col_dx_noborder">
-            <div class="titolo"><hh2>Vincitori schedina</hh2></div>
-            <p>Nessuno è riuscito a fare 13. Pensi di poter essere il primo?</p>
-           <!-- <div class="fame schedina_fame">
-                <div class="puntina">&nbsp;</div>
-                <img src="images/profilo.jpg" title="Profilo" /><br>
-                <strong>nome cognome</strong>	
-                <hr>
-                Vincitore gara:	<br>	
-                <strong>campionati ita assoluti</strong>
-            </div>     -->   
-        </div>
         
-        <!--
-		<div class="col_dx_noborder">
-            <div class="titolo"><hh2>Giocatori TOP Player</hh2></div>
-            <div class="fame top_player">
-                <div class="puntina">&nbsp;</div>
-                <img src="images/profilo.jpg" title="Profilo" /><br>
-                <strong>nome cognome</strong>	
-                <hr>
-                Vincitore gara:	<br>	
-           		<strong>campionati ita assoluti</strong>
-            </div>      
-        </div>-->
-        
-    
+        </div>  
     </div>
 </div>
 
-<?php include 'php/footer4_0.php';?>  
+       
+    </div>
+</div>
+
+<?php include 'php/footer4_0.php';?> 
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://www.appelsiini.net/projects/lazyload/jquery.lazyload.js?v=1.9.1"></script>
+<script>
+$(function() {$("img").lazyload({effect : "fadeIn"});});;
+function Espandi(div){if (document.getElementById(div).style.display=='block'){document.getElementById(div).style.display='none';} else{document.getElementById(div).style.display='block';}}
+</script> 

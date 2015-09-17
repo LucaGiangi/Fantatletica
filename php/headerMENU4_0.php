@@ -10,7 +10,7 @@ global $C_token;
 		<div class="call_action_contenuto_m">
 			<div class="dx_m_g">
 				<ul id="menu-principale" class="menu w_menu_g" >
-					<li>'; if(isset($_COOKIE[$C_token])) print' <a href="g-home.php">Home</a>'; else print' <a href="index.php">Home</a>'; print'</li>
+					<li>'; if(isset($_COOKIE[$C_token])) print' <a href="profile.php">Home</a>'; else print' <a href="index.php">Home</a>'; print'</li>
 					<li><a href="g-home.php?cod=esci">Logout</a></li>
 					<li><a href="'; if ($team_creato==true or ($_SESSION['id_competizione']==-1)) print 'g-home-team.php'; else print'g-team_new.php';
 					print '">Team</a></li>
@@ -39,12 +39,12 @@ global $C_token;
 if(isset($_COOKIE[$C_token]))	print'<div class="dx_m_g">'; else print'<div class="dx_m">';
             print '<ul id="menu-principale" class="';if(isset($_COOKIE[$C_token])) print'w_menu_g';else print'w_menu menu';
 			print'" >
-            <li >';  if(isset($_COOKIE[$C_token])) print' <a href="g-home.php">Home</a>'; else print' <a href="index.php">Home</a>'; print'</li>';
+            <li >';  if(isset($_COOKIE[$C_token])) print' <a href="profile.php">Home</a>'; else print' <a href="index.php">Home</a>'; print'</li>';
             if(isset($_COOKIE[$C_token])) print'<li><a href="g-home.php?cod=esci">Logout</a></li>';
 			else print'
             <li  ><a href="login.php">Login/registrati</a></li>';
             
-         if(isset($_COOKIE[$C_token])) print' <li  ><a href="g-home.php">Gioca</a></li>';
+         if(isset($_COOKIE[$C_token])) print' <li><a href="profile.php">Gioca</a></li>';
            print' <li class="has-sub" ><a href="Regolamento.php">Regolamento</a>
             		<ul class="nascondi">
             			<li><a href="Regolamento.php#fanta">&nbsp;Fantatletica</a></li>
